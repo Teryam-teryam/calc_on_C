@@ -8,59 +8,31 @@ void operand_selection(int* operand_1, int* operand_2)
 	scanf("%d", operand_2);
 }
 
-int addition()
-{
-	int operand_1, operand_2;
-	operand_selection(&operand_1, &operand_2);
-	return operand_1 + operand_2;
-}
-int subtraction()
-{
-	int operand_1, operand_2;
-	operand_selection(&operand_1, &operand_2);
-	return operand_1 - operand_2;
-}
-
-int multiplication()
-{
-	int operand_1, operand_2;
-	operand_selection(&operand_1, &operand_2);
-	return operand_1 * operand_2;
-}
-
-int division()
-{
-	int operand_1, operand_2;
-	operand_selection(&operand_1, &operand_2);
-	return operand_1 / operand_2;
-}
-void operator_selection()
+float calculate()
 {
 	char operator;
 	printf("Введите оператор [+, -, *, /]: ");
-	scanf("%c",&operator);
+	scanf("%c",&operator);	
+	int operand_1, operand_2;
+	operand_selection(&operand_1, &operand_2);
 	switch(operator)
 		{
 		case '+':
-			printf("%d\n", addition());
-			break;
+			return operand_1 + operand_2;
 		case '-':
-			printf("%d\n", subtraction());
-			break;
+			return operand_1 - operand_2;
 		case '*':
-			printf("%d\n", multiplication());
-			break;
+			return operand_1 * operand_2;
 		case '/':
-			printf("%d\n", division());
-			break;
+			return operand_1 / operand_2;
 		default:
-			printf("Неизвестный оператор.\n");
-			break;
+			return 0;
 		} 
 }
 
 int main()
 {
-	operator_selection();
+	printf("Результат: %f\n", calculate());
 	return 0;
 }
+
