@@ -1,16 +1,21 @@
-cc = gcc
-target = calculator
-src = calc.c
-flags = -o
-obj = calc.o
+#Компилятор и флаги
+CC = gcc
+CFLAGS = -Wall -std=c99
 
-all: $(target)
+#Целевой исполняемый файл
+TARGET = calculator
 
-$(target): $(obj)
-	$(cc) $(flags) $@ $^
-	
-$(obj): $(src)
-	$(cc) -c $(src)
+#Исходники и объектные файлы
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^	
+
+%.o: %.c calc.h
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
-	rm -rf $(obj) $(target)
+	rm -rf $(OBJ) $(TARGET)
