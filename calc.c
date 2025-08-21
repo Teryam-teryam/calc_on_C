@@ -8,7 +8,24 @@ void operand_selection(int* operand_1, int* operand_2)
 	scanf("%d", operand_2);
 }
 
-float calculate()
+int add(int operand_1, int operand_2) //addition
+{
+	return operand_1 + operand_2;
+}
+int sub(int operand_1, int operand_2) //substraction
+{
+	return operand_1 - operand_2;
+}
+int mult(int operand_1, int operand_2) //multiplication
+{
+	return operand_1 * operand_2;
+}
+int div(int operand_1, int operand_2) //division
+{
+	return operand_1 / operand_2;
+}
+
+int calculate()
 {
 	char operator;
 	printf("Введите оператор [+, -, *, /]: ");
@@ -18,13 +35,13 @@ float calculate()
 	switch(operator)
 		{
 		case '+':
-			return operand_1 + operand_2;
+			return add(operand_1, operand_2);
 		case '-':
-			return operand_1 - operand_2;
+			return sub(operand_1, operand_2);
 		case '*':
-			return operand_1 * operand_2;
+			return mult(operand_1, operand_2);
 		case '/':
-			return operand_1 / operand_2;
+			return div(operand_1, operand_2);
 		default:
 			return 0;
 		} 
